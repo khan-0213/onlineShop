@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Kirish
+{% endblock title %}
+
+{% block content %}
+<div class="card bg-dark text-white">
+    <img src="/static/photo2.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+        <h2>
+            Saytga kirish
+        </h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Kirish</button>
+        </form>
+        <p>
+            Parolingizni unutdingizmi?<br>
+            <a class="btn btn-success" href="{% url 'password_reset' %}">Yangi parol yaratish</a>
+        </p>
+
+
+    </div>
+</div>
+
+{% endblock content %}

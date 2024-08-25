@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    nav div {
+        background-color:#8A2BE2;
+    }
+</style>
+<div>
+<nav class="navbar navbar-light bg-light" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/static/logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            ONLINE DO'KON
+        </a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+    <span class="navbar-text">
+      Assalomu Aleykum!<br> ONLINE DO'KON saytiga xush kelibsiz! {{ user.username | title}}
+    </span>
+            </div>
+        </nav>
+    </div>
+</nav>
+    <nav>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="btn btn-success" aria-current="page" href="{% url 'home' %}">Bosh saxifa</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-success" href="{% url 'product_list' %}">Maxsulotlar</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-success" href="{% url 'product_new' %}" role="button">Maxsulot joylash</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-success" href="{% url 'user_profile' %}">Shaxsiy kabinent</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="card bg-dark text-white">
+        <img src="/static/photo2.jpg" class="card-img" alt="">
+        <div class="card-img-overlay">
+            <h2>
+                Yangi maxsulot qo'shish
+            </h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Saqlash</button>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+        <a href="https://github.com/khan-0213" target="_blank">GitHub</a>
+    </div>
+</footer>
+{% endblock content %}

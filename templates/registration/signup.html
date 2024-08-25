@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ro'yxatdan o'tish
+{% endblock title %}
+
+{% block content %}
+<div class="card bg-dark text-white">
+    <img src="/static/photo2.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+        <h2>
+            Ro'yxatdan o'tish
+        </h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Ro'yxatdan o'tish</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}

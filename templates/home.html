@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Bosh sahifa
+{% endblock title %}
+
+{% block content %}
+<style>
+    nav div {
+        background-color:#8A2BE2;
+    }
+</style>
+    {% if user.is_authenticated %}
+<nav class="navbar navbar-light bg-light" style="background-color:#8A2BE2">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="static/logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            ONLINE DO'KON
+        </a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+    <span class="navbar-text">
+      Assalomu Aleykum!<br> ONLINE DO'KON saytiga xush kelibsiz! {{ user.username | title}}
+    </span>
+            </div>
+        </nav>
+    </div>
+</nav>
+<nav>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="btn btn-success" aria-current="page" href="{% url 'home' %}">Bosh saxifa</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-success" href="{% url 'product_list' %}">Maxsulotlar</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-success" href="{% url 'product_new' %}" role="button">Maxsulot joylash</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-success" href="{% url 'user_profile' %}">Shaxsiy kabinent</a>
+        </li>
+    </ul>
+</nav>
+<div class="jumbotron">
+    <h1 class="display-4">Assalom alaykum!</h1>
+    <p class="lead">G'afforov Zavqiddinning ONLINE DO'KON saytiga xush kelibsiz!</p>
+    <hr class="my-4">
+</div>
+<div class="card bg-dark text-white">
+    <img src="/static/photo2.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+        <p class="navbar navbar-light bg-light" style="color:#708090;">Bu saytda siz maxsulotlar haqida malumot olishingiz va maxsulotlar joylashingiz mumkin.</p>
+        <h5 class="card-title" style="color:#708090;">ONLINE DO'KON</h5>
+        <p class="card-text" style="color:#708090;">Yaratuvchi: Zavqiddin G'offorov</p>
+        <p class="card-text" style="color:#">" O'qish, bilm olish insonni oddiy</p>
+        <p class="card-text" style="color:#">odamlar qatoridan yuqoriroq</p>
+        <p class="card-text" style="color:#">pog'onaga olib chiqadi."</p>
+        <p class="card-text" style="color:#708090;">Mualif: Stiv Jobs,</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+        <a href="https://github.com/khan-0213" target="_blank">GitHub</a>
+    </div>
+</footer>
+
+    {% else %}
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            ONLINE DO'KON
+        </a><br><br><br>
+    </div>
+</nav>
+<div class="card bg-dark text-white">
+    <img src="/static/photo2.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+        <div class="card">
+            <div class="jumbotron">
+                <h1 class="display-4" style="color:black;">Assalom alaykum!</h1>
+                <h2 class="lead" style="color:black;">ONLINE DO'KON saytiga kirishni istaysizmi?</h2>
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Kirish</a>  |
+                <a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Ro'yxatdan o'tish</a>
+                <hr class="my-4">
+                <p style="color:black;">ONLINE DO'KON saytida siz maxsulotlaringizni joylashingiz va boshqa maxsulotlar haqida malumot olishingiz mumkin.</p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+    {% endif %}
+{% endblock content %}

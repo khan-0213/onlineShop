@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    nav div {
+        background-color:#8A2BE2;
+    }
+</style>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/static/logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            ONLINE DO'KON
+        </a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+    <span class="navbar-text">
+      Assalomu Aleykum!<br> ONLINE DO'KON saytiga xush kelibsiz! {{ user.username | title}}
+    </span>
+            </div>
+        </nav>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="card" >
+        <div class="card-body">
+            <img src="{{ object.product_photo.url }}" alt="{{ object.product_name }}">
+            <h1>{{ object.product_name }}</h1>
+            <h6>Joyladi: {{ object.author }} | {{ object.date }}</h6>
+            <p>{{ object.product_summary | safe }}</p>
+            <p>{{ object.product_about }}</p>
+            <a href="{% url 'product_edit' object.pk %}">Taxrirlash</a> |
+            <a href="{% url 'product_delete' object.pk %}">O'chirish</a> |
+            <a href="{% url 'product_list' %}">Barcha postlar</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+        <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+        <a href="https://github.com/khan-0213" target="_blank">GitHub</a>
+    </div>
+</footer>
+{% endblock content %}

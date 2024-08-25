@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Post
+{% endblock %}
+
+{% block content %}
+<style>
+    nav div {
+        background-color:#8A2BE2;
+    }
+</style>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/static/logo.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            ONLINE DO'KON
+        </a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+    <span class="navbar-text">
+      Assalomu Aleykum!<br> ONLINE DO'KON saytiga xush kelibsiz! {{ user.username | title}}
+    </span>
+            </div>
+        </nav>
+    </div>
+</nav>
+<div class="card bg-dark text-white">
+    <img src="/static/photo2.jpg" class="card-img" alt="">
+    <div class="card-img-overlay">
+        <h2 style="color:black;">
+            Taxrirlash
+        </h2>
+        <form method="post" enctype="multipart/form-data" style="color:black;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Saqlash</button>
+        </form>
+
+
+    </div>
+</div>
+{% endblock content %}
